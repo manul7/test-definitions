@@ -11,6 +11,20 @@ from base64 import b64encode
 
 
 def main(args):
+    """Main function to process and print details based on a JSON file.
+    
+    Args:
+        args (object): Contains the property 'json_file' which specifies the JSON 
+        file to be loaded and processed.
+    
+    No explicit return from this function, but the function does exit with an exit
+    status signifying the success/failure status of the execution.
+    
+    Outputs:
+        Prints a series of strings based on the JSON file information, including 
+        module names, operation details, base64 encoded command strings, and 
+        configuration details. The output is formatted for further processing.
+    """
     exitcode = 0
     with open(args.json_file) as f:
         module = json.load(f)
