@@ -17,10 +17,26 @@ RESULTS_OK = "/tmp/check_results_ok"
 
 
 def info_msg(msg):
+    """Prints an information message.
+    
+    Args:
+        msg (str): The message to be printed with 'INFO:' prefix.
+    
+    Returns:
+        None
+    """
     print(f"INFO: {msg}")
 
 
 def error_msg(msg):
+    """Function for printing an error message in a standard format.
+    
+    Args:
+        msg (str): The message that needs to be printed as an error message.
+    
+    Returns:
+        None
+    """
     print(f"ERROR: {msg}")
 
 
@@ -239,6 +255,14 @@ def read_sha256_file(file_path):
 
 
 def collect_sha256_benchmark(cfg_name):
+    """Collects the SHA256 benchmark results from a specific configuration
+    
+    Args:
+        cfg_name str: The name of the configuration from where to retrieve the SHA256 benchmark results
+    
+    Returns:
+        str: Returns the SHA256 benchmark results read from the file corresponding to the given configuration name.
+    """
     loc = f"/mmtests/{cfg_name}.SHA256"
     return read_sha256_file(loc)
 
@@ -248,6 +272,14 @@ def parse_boottime():
     time_patt = re.compile(r"(\d+(?:\.\d+)?)(ms|us|s)")
 
     def parse_time(t):
+        """Parse a given time string and convert into an integer representation.
+        
+        Args:
+            t (str): A string representing time. The string must contain a number followed by either "ms", "us", or no unit. 
+        
+        Returns:
+            int: return the time in milliseconds as an integer. If the unit is "us" it converts to milliseconds. If the unit is "ms" or not provided, it returns the original number.
+        """
         match = time_patt.match(t)
         if not match:
             return 0
