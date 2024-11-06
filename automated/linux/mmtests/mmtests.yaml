@@ -82,6 +82,7 @@ run:
             [ -n "${MMTESTS_MONITORS}" ] && cmd="${cmd} -m";
             [ -n "${MMTESTS_OVERRIDE}" ] && cmd="${cmd} -o '${MMTESTS_OVERRIDE}'";
             [ -n "${FULL_ARCHIVE}" ] && cmd="${cmd} -f";
+            [ -n "${MMTESTS_OVERRIDE}" ] && cmd="${cmd} -o '${MMTESTS_OVERRIDE}'";
             eval $cmd
         - |
             results_archive=$(echo ${MMTESTS_CONFIG_FILE} | sed -e 's|^.*config-|mmtests-|g')-$(date +'%Y%m%d%H%M').tar.xz
