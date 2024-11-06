@@ -54,6 +54,10 @@ params:
     # MMTESTS monitors
     MMTESTS_MONITORS: false
 
+    # Override string for MMTests configuration file.
+    # Should be in the form of "key1=value1;key2=value2".
+    MMTESTS_OVERRIDE: null
+
     # URL to artifactorial storage
     ARTIFACTORIAL_URL: "https://archive.validation.linaro.org/artifacts/private/lkft-performance/"
 
@@ -77,6 +81,7 @@ run:
             [ -n "${MMTEST_ITERATIONS}" ] && cmd="${cmd} -i '${MMTEST_ITERATIONS}'";
             [ -n "${MMTESTS_MONITORS}" ] && cmd="${cmd} -m";
             [ -n "${FULL_ARCHIVE}" ] && cmd="${cmd} -f";
+            [ -n "${MMTESTS_OVERRIDE}" ] && cmd="${cmd} -o '${MMTESTS_OVERRIDE}'";
             eval $cmd
         - |
             results_archive=$(echo ${MMTESTS_CONFIG_FILE} | sed -e 's|^.*config-|mmtests-|g')-$(date +'%Y%m%d%H%M').tar.xz
