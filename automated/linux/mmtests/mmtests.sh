@@ -203,6 +203,10 @@ run_test() {
 }
 
 collect_results() {
+  ls -l /
+  ls -l /mmtests
+  ls -l $TEST_DIR
+  ls -l $OUTPUT
   command="python3 $COLLECTOR -c $MMTESTS_CONFIG_FILE -d $TEST_DIR -i $MMTEST_ITERATIONS -o $OUTPUT"
 
   if [ ! -f "$FULL_ARCHIVE" ]; then
