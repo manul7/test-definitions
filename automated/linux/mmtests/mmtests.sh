@@ -222,8 +222,8 @@ collect_results() {
   fi
   info_msg "DEBUG: OUTPUT content:"
   ls -l $OUTPUT/$MMTESTS_CONFIG_FILE
-  info_msg "DEBUG: $RESULTS_DIR content:"
-  ls -l $RESULTS_DIR
+  info_msg "DEBUG: $OUTPUT/$RESULTS_DIR content:"
+  ls -l $OUTPUT/$RESULTS_DIR
 }
 
 ! check_root && error_msg "Please run this script as root."
