@@ -208,7 +208,9 @@ collect_results() {
   ls -l /mmtests
   ls -l $TEST_DIR
   ls -l $OUTPUT
+  info_msg "${OUTPUT} content:"
   ls -l /mmtests/output
+  info_msg "/mmtests/work/log content:"
   ls -l /mmtests/work/log
 
   command="python3 $COLLECTOR -c $MMTESTS_CONFIG_FILE -d $TEST_DIR -i $MMTEST_ITERATIONS -o $OUTPUT"
@@ -218,6 +220,8 @@ collect_results() {
   else
     eval "$command"
   fi
+  info_msg "DEBUG: OUTPUT content:"
+  ls -l $OUTPUT
 }
 
 ! check_root && error_msg "Please run this script as root."
