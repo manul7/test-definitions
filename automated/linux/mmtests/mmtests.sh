@@ -221,7 +221,7 @@ collect_results() {
     eval "$command"
   fi
   info_msg "DEBUG: OUTPUT content:"
-  ls -l $OUTPUT
+  ls -l $OUTPUT/$MMTESTS_CONFIG_FILE
 }
 
 ! check_root && error_msg "Please run this script as root."
